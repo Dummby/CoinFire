@@ -51,9 +51,10 @@ public class PullData extends Thread {
 			if (CoinFire.btcCheckBox.isSelected()) {
 				JSON bitcoin = new JSON(jsonObject, Constants.bitcoin,
 						selectedCurrency);
-				parsedResponse.append(Constants.bitcoin + ": ");
-				parsedResponse.append(
-						selectedCurrencyAppendString + bitcoin.getRealPrice())
+				parsedResponse
+						.append(Constants.bitcoin + ": ")
+						.append(selectedCurrencyAppendString
+								+ bitcoin.getRealPrice())
 						.append(Constants.breakLine);
 				if (csvDump) {
 					WriteCSV.writeCSV(bitcoin);
@@ -63,9 +64,10 @@ public class PullData extends Thread {
 			if (CoinFire.ethereumCheckBox.isSelected()) {
 				JSON ethereum = new JSON(jsonObject, Constants.ethereum,
 						selectedCurrency);
-				parsedResponse.append(Constants.ethereum + ": ");
-				parsedResponse.append(
-						selectedCurrencyAppendString + ethereum.getRealPrice())
+				parsedResponse
+						.append(Constants.ethereum + ": ")
+						.append(selectedCurrencyAppendString
+								+ ethereum.getRealPrice())
 						.append(Constants.breakLine);
 				if (csvDump) {
 					WriteCSV.writeCSV(ethereum);
@@ -74,9 +76,10 @@ public class PullData extends Thread {
 			if (CoinFire.rippleCheckBox.isSelected()) {
 				JSON ripple = new JSON(jsonObject, Constants.ripple,
 						selectedCurrency);
-				parsedResponse.append(Constants.ripple + ": ");
-				parsedResponse.append(
-						selectedCurrencyAppendString + ripple.getRealPrice())
+				parsedResponse
+						.append(Constants.ripple + ": ")
+						.append(selectedCurrencyAppendString
+								+ ripple.getRealPrice())
 						.append(Constants.breakLine);
 				if (csvDump) {
 					WriteCSV.writeCSV(ripple);
@@ -85,9 +88,10 @@ public class PullData extends Thread {
 			if (CoinFire.ltcCheckBox.isSelected()) {
 				JSON litecoin = new JSON(jsonObject, Constants.litecoin,
 						selectedCurrency);
-				parsedResponse.append(Constants.litecoin + ": ");
-				parsedResponse.append(
-						selectedCurrencyAppendString + litecoin.getRealPrice())
+				parsedResponse
+						.append(Constants.litecoin + ": ")
+						.append(selectedCurrencyAppendString
+								+ litecoin.getRealPrice())
 						.append(Constants.breakLine);
 				if (csvDump) {
 					WriteCSV.writeCSV(litecoin);
@@ -96,9 +100,10 @@ public class PullData extends Thread {
 			if (CoinFire.dashCheckox.isSelected()) {
 				JSON dash = new JSON(jsonObject, Constants.dash,
 						selectedCurrency);
-				parsedResponse.append(Constants.dash + ": ");
-				parsedResponse.append(
-						selectedCurrencyAppendString + dash.getRealPrice())
+				parsedResponse
+						.append(Constants.dash + ": ")
+						.append(selectedCurrencyAppendString
+								+ dash.getRealPrice())
 						.append(Constants.breakLine);
 				if (csvDump) {
 					WriteCSV.writeCSV(dash);
@@ -106,7 +111,9 @@ public class PullData extends Thread {
 			}
 
 			if (parsedResponse != null && !parsedResponse.toString().isEmpty()) {
-				parsedResponse.append("Time: " + Log.getTime().toString());
+				parsedResponse.append("Time: " + Log.getTime().toString())
+						.append(Constants.breakLine)
+						.append("Next Data Update: 5 Minutes");
 			}
 
 			Log.logNoTime(parsedResponse.toString());
