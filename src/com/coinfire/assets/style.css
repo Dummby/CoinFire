@@ -14,6 +14,19 @@
 	-fx-height: 20;
 }
 
+.button:hover {
+	-fx-background-color: transparent;
+	-fx-border-color: #58ACFA;
+	-fx-background-radius: 30;
+	-fx-border-radius: 30;
+	-fx-text-fill: #58ACFA;
+	-fx-font-weight: bold;
+	-fx-font-size: 14px;
+	-fx-padding: 10 20 10 20;
+	-fx-width: 30;
+	-fx-height: 20;
+}
+
 /*
 * https://docs.oracle.com/javafx/2/text/jfxpub-text.htm
 */
@@ -23,6 +36,14 @@
 	-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);
 	-fx-stroke: black;
 	-fx-stroke-width: 1;
+}
+
+#calcText {
+
+}
+
+#calcOutputText {
+
 }
 
 #pane1{

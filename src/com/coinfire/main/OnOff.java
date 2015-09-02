@@ -6,7 +6,7 @@ package com.coinfire.main;
 
 
 public class OnOff {
-	static Integer onOff = 0;
+	public static Integer onOff = 0;
 
 	public static void turnOn() {
 

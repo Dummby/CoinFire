@@ -21,7 +21,7 @@ public class Log {
 					getLogPath(), true));
 			StringBuffer sb = new StringBuffer();
 			sb.append(message + " @ " + getTime()).append(
-					System.getProperty("line.separator"));
+					Constants.breakLine);
 			System.out.println(sb.toString());
 			(CoinFire.display).setText(message);
 			bwr.write(sb.toString());
@@ -34,7 +34,7 @@ public class Log {
 	}
 
 	public static String getTime() {
-		DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 		Date dateobj = new Date();
 		return df.format(dateobj);
 	}
@@ -60,7 +60,7 @@ public class Log {
 				BufferedWriter bwr = new BufferedWriter(new FileWriter(
 						getLogPath(), true));
 				StringBuffer sb = new StringBuffer();
-				sb.append(message).append(System.getProperty("line.separator"));
+				sb.append(message).append(Constants.breakLine);
 				System.out.println(sb.toString());
 				(CoinFire.display).setText(message);
 				bwr.write(sb.toString());

@@ -1,10 +1,12 @@
-package com.coinfire.main;
+package com.coinfire.api;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import com.coinfire.main.Constants;
+import com.coinfire.main.Log;
 
 /*
  * @author Adam InTae Gerard
