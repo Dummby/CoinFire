@@ -145,7 +145,7 @@ public class CoinFire extends Application {
 						pullButton.setText("Pull Cryptocurrency Data");
 					}
 				} else {
-					Log.log("A log file must be selected");
+					display.setText("A log file must be selected");
 				}
 			}
 		});
