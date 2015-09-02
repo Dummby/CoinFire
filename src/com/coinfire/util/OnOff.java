@@ -1,4 +1,4 @@
-package com.coinfire.main;
+package com.coinfire.util;
 
 /*
  * @author Adam InTae Gerard

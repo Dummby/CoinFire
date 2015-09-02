@@ -1,4 +1,4 @@
-package com.coinfire.main;
+package com.coinfire.util;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.coinfire.CoinFire;
 
 /*
  * @author Adam InTae Gerard

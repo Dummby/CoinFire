@@ -9,10 +9,10 @@ import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
-import com.coinfire.main.Constants;
-import com.coinfire.main.Log;
 import com.coinfire.pojo.CSV;
 import com.coinfire.pojo.JSON;
+import com.coinfire.util.Constants;
+import com.coinfire.util.Log;
 
 public class WriteCSV {
 

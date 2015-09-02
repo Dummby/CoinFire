@@ -3,12 +3,12 @@ package com.coinfire.api;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.coinfire.CoinFire;
 import com.coinfire.csv.WriteCSV;
-import com.coinfire.main.CoinFire;
-import com.coinfire.main.Constants;
-import com.coinfire.main.Log;
-import com.coinfire.main.OnOff;
 import com.coinfire.pojo.JSON;
+import com.coinfire.util.Constants;
+import com.coinfire.util.Log;
+import com.coinfire.util.OnOff;
 
 /*
  * @author Adam InTae Gerard
@@ -21,6 +21,7 @@ public class PullData extends Thread {
 		this.minPrime = minPrime;
 	}
 
+	@SuppressWarnings("deprecation")
 	public void run() {
 		try {
 			while (OnOff.onOff.equals(1)) {

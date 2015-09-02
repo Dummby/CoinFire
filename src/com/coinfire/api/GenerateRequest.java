@@ -5,8 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.coinfire.main.Constants;
-import com.coinfire.main.Log;
+import com.coinfire.util.Constants;
+import com.coinfire.util.Log;
 
 /*
  * @author Adam InTae Gerard

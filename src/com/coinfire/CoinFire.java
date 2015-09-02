@@ -1,4 +1,4 @@
-package com.coinfire.main;
+package com.coinfire;
 
 import java.io.File;
 
@@ -12,7 +12,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -21,6 +20,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import com.coinfire.api.PullData;
+import com.coinfire.util.Log;
+import com.coinfire.util.OnOff;
 
 /*
  * @author Adam InTae Gerard
@@ -212,7 +213,7 @@ public class CoinFire extends Application {
 
 		scene1 = new Scene(pane, 800, 500);
 		scene1.getStylesheets().add(
-				CoinFire.class.getResource("../assets/style.css")
+				CoinFire.class.getResource("assets/style.css")
 						.toExternalForm());
 
 		stage.initStyle(StageStyle.UNDECORATED);
