@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import com.coinfire.api.PullData;
+import com.coinfire.util.Constants;
 import com.coinfire.util.Log;
 import com.coinfire.util.OnOff;
 
@@ -29,11 +30,11 @@ import com.coinfire.util.OnOff;
 
 public class CoinFire extends Application {
 
+	
 	public static File logFile = null;
 	public static File csvFile = null;
 	private static Scene scene1 = null;
-	public static Text display = new Text(250, 250,
-			"Hello, please choose a log file.");
+	public static Text display = new Text(250, 250, Constants.introString);
 
 	public static final ComboBox<String> comboBox1 = new ComboBox<String>();
 	public static final ComboBox<String> comboBox2 = new ComboBox<String>();
@@ -47,6 +48,10 @@ public class CoinFire extends Application {
 	public static CheckBox rippleCheckBox;
 	public static CheckBox ltcCheckBox;
 	public static CheckBox dashCheckox;
+	
+	public static CheckBox coinmarketcapCheckBox;
+	public static CheckBox cryptocoinchartsCheckBox;
+	public static CheckBox bitcoinchartsCheckBox;
 
 	public static CheckBox csvDump;
 
@@ -96,7 +101,14 @@ public class CoinFire extends Application {
 		csvDump = new CheckBox("Create File For Each Selected Currency");
 		VBox vb2 = new VBox();
 		vb2.getChildren().addAll(xmlLabel, csvDump);
-
+		
+		Label marketLabel = new Label("Select Markets:");
+		coinmarketcapCheckBox = new CheckBox("Coin Market-Cap");
+		cryptocoinchartsCheckBox = new CheckBox("Cryptocoin Charts");
+		bitcoinchartsCheckBox = new CheckBox("Bitcoin Charts");
+		VBox vb3 = new VBox();
+		vb3.getChildren().addAll(marketLabel, coinmarketcapCheckBox, cryptocoinchartsCheckBox, bitcoinchartsCheckBox);
+		
 		Button logButton = new Button("Set Log File Location");
 		logButton.setId("log-Button");
 		logButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -167,7 +179,7 @@ public class CoinFire extends Application {
 		});
 
 		pane.setId("pane1");
-		pane.getChildren().addAll(vb1, vb2, logButton, pullButton, display,
+		pane.getChildren().addAll(vb1, vb2, vb3, logButton, pullButton, display,
 				exitButton, calcText, calcLabel, comboBox1, comboBox2,
 				comboBox3, calcOutputText);
 
@@ -199,6 +211,8 @@ public class CoinFire extends Application {
 		vb1.setLayoutY(50);
 		vb2.setLayoutX(55);
 		vb2.setLayoutY(165);
+		vb3.setLayoutX(550);
+		vb3.setLayoutY(240);
 
 		display.setLayoutX(125);
 		display.setLayoutY(-175);

@@ -1,5 +1,6 @@
 package com.coinfire.csv;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,8 +20,9 @@ public class WriteCSV {
 	public static void writeCSV(JSON coinObject) {
 
 		ICsvBeanWriter beanWriter = null;
-		String csvFileName = getCSVPath(Log.getLogPath()) + "//" + coinObject.getName()
-				+ ".csv";
+		String csvFileName = getCSVPath(Log.getLogPath()) + "//"
+				+ coinObject.getName() + ".csv";
+		Boolean skipHeader = new File(csvFileName).exists();
 
 		CSV csvObject = new CSV(coinObject.getName(),
 				coinObject.getMarketCap(), coinObject.getComparisonCurrency(),
@@ -29,7 +31,7 @@ public class WriteCSV {
 				coinObject.getTimestamp());
 
 		try {
-			beanWriter = new CsvBeanWriter(new FileWriter(csvFileName),
+			beanWriter = new CsvBeanWriter(new FileWriter(csvFileName, true),
 					CsvPreference.STANDARD_PREFERENCE);
 
 			final String[] header = new String[] { "cryptocurrency",
@@ -38,13 +40,15 @@ public class WriteCSV {
 			final CellProcessor[] processors = CryptocurrencyCellProcessor
 					.getCryptocurrencyProcessors();
 
-			beanWriter.writeHeader(header);
+			if (!(skipHeader)) {
+				beanWriter.writeHeader(header);
+			}
 			beanWriter.write(csvObject, header, processors);
 
 			if (beanWriter != null) {
 				beanWriter.close();
 			}
-			
+
 		} catch (Exception e) {
 			Log.log(Constants.genericError + e);
 		}

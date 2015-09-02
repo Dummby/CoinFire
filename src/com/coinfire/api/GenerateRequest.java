@@ -18,7 +18,7 @@ public class GenerateRequest {
 
 		StringBuffer result = new StringBuffer();
 		try {
-			URL obj = new URL(Constants.coinMarketCapGETAll);
+			URL obj = new URL(Constants.coinMarketcapURL);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(

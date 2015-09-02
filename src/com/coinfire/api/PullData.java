@@ -31,7 +31,7 @@ public class PullData extends Thread {
 					this.stop();
 					break;
 				}
-				Thread.sleep(250);
+				Thread.sleep(300000);
 			}
 		} catch (Exception e) {
 			Log.log("Exception encountered: " + e);
