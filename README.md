@@ -10,7 +10,7 @@ Cryptocurrency utility with the following features:
 
 Data pulled from several API's (see com.coinfire.util.Constants)
 
-Severe restrictions on the number of REST requests have been placed on most API's - 
+Severe restrictions on the number of REST requests that can be made per minute have been placed on most API's - 
 config.properties current the current maximum allowed requests and can be modified accordingly.
 
 Simple Install: download most recent .jar and run with Java 8 JVM.
