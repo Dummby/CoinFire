@@ -28,7 +28,7 @@ public class WriteCSV {
 				coinObject.getMarketCap(), coinObject.getComparisonCurrency(),
 				coinObject.getRealPrice(), coinObject.getSupply(),
 				coinObject.getVolume(), coinObject.getChange(),
-				coinObject.getTimestamp());
+				coinObject.getTimestamp(), coinObject.getMarket());
 
 		try {
 			beanWriter = new CsvBeanWriter(new FileWriter(csvFileName, true),
@@ -36,7 +36,7 @@ public class WriteCSV {
 
 			final String[] header = new String[] { "cryptocurrency",
 					"marketCap", "comparisonCurrency", "price", "supply",
-					"volume", "change", "timestamp" };
+					"volume", "change", "timestamp", "market"};
 			final CellProcessor[] processors = CryptocurrencyCellProcessor
 					.getCryptocurrencyProcessors();
 

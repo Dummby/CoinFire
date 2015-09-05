@@ -10,10 +10,11 @@ public class CSV {
 	private String volume;
 	private String change;
 	private String timestamp;
-	
+	private String market;
 
-	public CSV(String cryptocurrency, String marketCap, String comparisonCurrency, String price,
-			String supply, String volume, String change, String timestamp) {
+	public CSV(String cryptocurrency, String marketCap,
+			String comparisonCurrency, String price, String supply,
+			String volume, String change, String timestamp, String market) {
 		setCryptocurrency(cryptocurrency);
 		setMarketCap(marketCap);
 		setComparisonCurrency(comparisonCurrency);
@@ -22,6 +23,15 @@ public class CSV {
 		setVolume(volume);
 		setChange(change);
 		setTimestamp(timestamp);
+		setMarket(market);
+	}
+
+	public String getMarket() {
+		return market;
+	}
+
+	public void setMarket(String market) {
+		this.market = market;
 	}
 
 	public String getCryptocurrency() {
@@ -39,7 +49,7 @@ public class CSV {
 	public void setMarketCap(String marketCap) {
 		this.marketCap = marketCap;
 	}
-	
+
 	public String getComparisonCurrency() {
 		return comparisonCurrency;
 	}

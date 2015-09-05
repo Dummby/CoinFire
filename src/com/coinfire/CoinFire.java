@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import com.coinfire.api.PullData;
+import com.coinfire.stringify.Stringify;
 import com.coinfire.util.Constants;
 import com.coinfire.util.Log;
 import com.coinfire.util.OnOff;
@@ -109,7 +110,7 @@ public class CoinFire extends Application {
 		VBox vb3 = new VBox();
 		vb3.getChildren().addAll(marketLabel, coinmarketcapCheckBox, cryptocoinchartsCheckBox, bitcoinchartsCheckBox);
 		
-		Button logButton = new Button("Set Log File Location");
+		Button logButton = new Button(Constants.setLog);
 		logButton.setId("log-Button");
 		logButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -121,11 +122,15 @@ public class CoinFire extends Application {
 						"Select Log File", "*.log");
 				fileChooser.getExtensionFilters().add(extFilter);
 				logFile = fileChooser.showSaveDialog(stage);
-				Log.log("Log file created.");
+				if (logFile != null) {
+					String logFileName = logFile.getName().toString();
+					logButton.setText(Stringify.truncate(logFileName, Stringify.countChar(Constants.setLog)));
+					Log.log("Log file created: " + logFileName);
+				}
 			}
 		});
 
-		Button pullButton = new Button("Pull Cryptocurrency Data");
+		Button pullButton = new Button(Constants.pullData);
 		pullButton.setId("Pull-Button");
 		pullButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -134,15 +139,15 @@ public class CoinFire extends Application {
 
 				if (logFile != null) {
 
-					if (pullButton.getText().equals("Pull Cryptocurrency Data")) {
+					if (pullButton.getText().equals(Constants.pullData)) {
 						OnOff.turnOn();
 						PullData pd = new PullData(1);
 						pd.start();
 
-						pullButton.setText("Stop Pull");
+						pullButton.setText(Stringify.truncate("Stop Pull", Stringify.countChar(Constants.pullData)));
 					} else {
 						OnOff.turnOff();
-						pullButton.setText("Pull Cryptocurrency Data");
+						pullButton.setText(Constants.pullData);
 					}
 				} else {
 					display.setText("A log file must be selected.");

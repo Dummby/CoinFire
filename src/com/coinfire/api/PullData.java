@@ -1,11 +1,15 @@
 package com.coinfire.api;
 
+import java.util.Map;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.coinfire.CoinFire;
 import com.coinfire.csv.WriteCSV;
+import com.coinfire.markets.Markets;
 import com.coinfire.pojo.JSON;
+import com.coinfire.timekeeper.TimeConversion;
 import com.coinfire.util.Constants;
 import com.coinfire.util.Log;
 import com.coinfire.util.OnOff;
@@ -24,14 +28,17 @@ public class PullData extends Thread {
 	@SuppressWarnings("deprecation")
 	public void run() {
 		try {
+			Map<String, Long> marketMap = Markets.getMarketMap();
 			while (OnOff.onOff.equals(1)) {
+
 				parseResponse(GenerateRequest.getCoinMarketCap());
 
 				if (OnOff.onOff.equals(0)) {
 					this.stop();
 					break;
 				}
-				Thread.sleep(300000);
+				Thread.sleep(TimeConversion.minuteToMilli(marketMap
+						.get(Constants.coinMarketcapURL)));
 			}
 		} catch (Exception e) {
 			Log.log("Exception encountered: " + e);
@@ -47,10 +54,11 @@ public class PullData extends Thread {
 
 		try {
 			JSONObject jsonObject = (JSONObject) new JSONParser().parse(input);
+			String market = "CoinMarketCap";
 
 			if (CoinFire.btcCheckBox.isSelected()) {
 				JSON bitcoin = new JSON(jsonObject, Constants.bitcoin,
-						selectedCurrency);
+						selectedCurrency, market);
 				parsedResponse
 						.append(Constants.bitcoin + ": ")
 						.append(selectedCurrencyAppendString
@@ -63,7 +71,7 @@ public class PullData extends Thread {
 
 			if (CoinFire.ethereumCheckBox.isSelected()) {
 				JSON ethereum = new JSON(jsonObject, Constants.ethereum,
-						selectedCurrency);
+						selectedCurrency, market);
 				parsedResponse
 						.append(Constants.ethereum + ": ")
 						.append(selectedCurrencyAppendString
@@ -75,7 +83,7 @@ public class PullData extends Thread {
 			}
 			if (CoinFire.rippleCheckBox.isSelected()) {
 				JSON ripple = new JSON(jsonObject, Constants.ripple,
-						selectedCurrency);
+						selectedCurrency, market);
 				parsedResponse
 						.append(Constants.ripple + ": ")
 						.append(selectedCurrencyAppendString
@@ -87,7 +95,7 @@ public class PullData extends Thread {
 			}
 			if (CoinFire.ltcCheckBox.isSelected()) {
 				JSON litecoin = new JSON(jsonObject, Constants.litecoin,
-						selectedCurrency);
+						selectedCurrency, market);
 				parsedResponse
 						.append(Constants.litecoin + ": ")
 						.append(selectedCurrencyAppendString
@@ -99,7 +107,7 @@ public class PullData extends Thread {
 			}
 			if (CoinFire.dashCheckox.isSelected()) {
 				JSON dash = new JSON(jsonObject, Constants.dash,
-						selectedCurrency);
+						selectedCurrency, market);
 				parsedResponse
 						.append(Constants.dash + ": ")
 						.append(selectedCurrencyAppendString

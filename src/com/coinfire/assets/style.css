@@ -16,10 +16,10 @@
 
 .button:hover {
 	-fx-background-color: transparent;
-	-fx-border-color: #58ACFA;
+	-fx-border-color: orange;
 	-fx-background-radius: 30;
 	-fx-border-radius: 30;
-	-fx-text-fill: #58ACFA;
+	-fx-text-fill: orange;
 	-fx-font-weight: bold;
 	-fx-font-size: 14px;
 	-fx-padding: 10 20 10 20;

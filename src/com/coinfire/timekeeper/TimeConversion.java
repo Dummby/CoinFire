@@ -1,4 +1,4 @@
-package com.coinfire.conversion;
+package com.coinfire.timekeeper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,5 +13,11 @@ public class TimeConversion {
 
 		return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
 				.format(dateTime);
+	}
+
+	public static Long minuteToMilli(Long minute) {
+		Long milli = (long) 0;
+		milli = (long) (minute * 1000);
+		return milli;
 	}
 }

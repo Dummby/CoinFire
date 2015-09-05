@@ -2,7 +2,7 @@ package com.coinfire.pojo;
 
 import org.json.simple.JSONObject;
 
-import com.coinfire.conversion.TimeConversion;
+import com.coinfire.timekeeper.TimeConversion;
 
 public class JSON {
 
@@ -14,8 +14,9 @@ public class JSON {
 	private String volume;
 	private String change;
 	private String timestamp;
+	private String market;
 
-	public JSON(JSONObject jsonObject, String nameRequest, String comparisonCurrency) {
+	public JSON(JSONObject jsonObject, String nameRequest, String comparisonCurrency, String market) {
 		JSONObject jsonName = (JSONObject) jsonObject.get(nameRequest);
 		JSONObject jsonMarketCap = (JSONObject) jsonName.get("market_cap");
 		JSONObject jsonPrice = (JSONObject) jsonName.get("price");
@@ -29,6 +30,15 @@ public class JSON {
 		setVolume((String) jsonVolume.get(comparisonCurrency));
 		setChange((String) jsonName.get("change"));
 		setTimestamp(TimeConversion.timeCoversion((double) jsonName.get("timestamp")));
+		setMarket(market);
+	}
+	
+	public String getMarket() {
+		return market;
+	}
+
+	public void setMarket(String market) {
+		this.market = market;
 	}
 
 	public String getName() {

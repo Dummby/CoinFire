@@ -10,7 +10,7 @@ public class CryptocurrencyCellProcessor {
 		final CellProcessor[] processors = new CellProcessor[] {
 
 		new NotNull(), new NotNull(), new NotNull(), new NotNull(),
-				new NotNull(), new NotNull(), new NotNull(), new NotNull() };
+				new NotNull(), new NotNull(), new NotNull(), new NotNull(), new NotNull()};
 
 		return processors;
 	}
