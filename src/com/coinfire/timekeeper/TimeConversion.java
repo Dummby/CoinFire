@@ -17,7 +17,7 @@ public class TimeConversion {
 
 	public static Long minuteToMilli(Long minute) {
 		Long milli = (long) 0;
-		milli = (long) (minute * 1000);
+		milli = (long) (minute * 60 * 1000);
 		return milli;
 	}
 }
